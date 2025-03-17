@@ -637,7 +637,7 @@ header.scrolled {
 }
 
 .hero__title--highlight {
-  color: var(--high-contrast-gold);
+  color: var(--accent-blue);
   position: relative;
   display: inline-block;
   text-shadow: 0 0 10px var(--high-contrast-gold),
