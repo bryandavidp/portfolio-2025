@@ -6,10 +6,19 @@
     <title>Bryan David Peña | Desarrollador Full-Stack</title>
     <meta name="description" content="Portafolio profesional de Bryan David Peña, Desarrollador Full-Stack con experiencia en desarrollo web, aplicaciones móviles y seguridad informática.">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-stats.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Barra de progreso de scroll -->
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    
+    <!-- Indicadores de posición de scroll -->
+    <div class="scroll-indicator-container" id="scrollIndicators" aria-label="Navegación de secciones">
+        <!-- Los indicadores se generarán dinámicamente mediante JavaScript -->
+    </div>
+    
     <header id="header">
         <div class="container">
             <nav class="navbar">
@@ -56,17 +65,42 @@
                     </div>
                     <p class="hero__description">Transformando ideas en soluciones digitales eficientes y escalables</p>
                     <div class="hero__actions">
-                        <a href="#projects" class="btn btn--primary">Ver Proyectos</a>
-                        <a href="#contact" class="btn btn--outline">Contactar</a>
+                        <a href="#projects" class="btn btn--primary">
+                            <i class="fas fa-code"></i>
+                            <span>Ver Proyectos</span>
+                        </a>
+                        <a href="#contact" class="btn btn--outline">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Contactar</span>
+                        </a>
+                    </div>
+                    <div class="hero__social-links">
+                        <a href="docs/CV-BryanDavidPena.pdf" class="social-btn" download title="Descargar CV">
+                            <i class="fas fa-file-download"></i>
+                            <span>DESCARGAR CV</span>
+                        </a>
+                        <a href="https://linkedin.com/in/bryandavidpena" target="_blank" class="social-btn" title="Perfil de LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LINKEDIN</span>
+                        </a>
+                        <a href="mailto:contact@bryandavidpena.com" class="social-btn" title="Enviar Email">
+                            <i class="fas fa-envelope"></i>
+                            <span>EMAIL</span>
+                        </a>
                     </div>
                         <div class="hero__stats" aria-label="Estadísticas profesionales">
                             <div class="stat-item">
-                                <span class="stat-number">5+</span>
+                                <span class="stat-number">+5</span>
                                 <span class="stat-label">Años de Experiencia</span>
                 </div>
                             <div class="stat-item">
-                                <span class="stat-number">100+</span>
+                                <span class="stat-number">+30</span>
                                 <span class="stat-label">Proyectos Completados</span>
+                            </div>
+
+                            <div class="stat-item">
+                                <span class="stat-number">+6000</span>
+                                <span class="stat-label">Horas de Debug</span>
                             </div>
                         </div>
                     </div>
@@ -94,135 +128,34 @@
                 </div>
             </div>
         </section>
-        
-        <!-- 2. Proyectos Destacados (ahora segunda sección) -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Proyectos Destacados</h2>
-                <div class="bento-grid">
-                    <div class="bento-item glass-card project-card">
-                        <div class="project-image" data-project="CMS">
-                            <img src="images/venntur.png" 
-                                 srcset="images/venntur.png 400w,
-                                         images/venntur.png 800w,
-                                         images/venntur.png 1200w"
-                                 sizes="(max-width: 600px) 400px,
-                                        (max-width: 1200px) 800px,
-                                        1200px"
-                                 alt="Venntur Platform">
-                        </div>
-                        <div class="project-info">
-                            <h3>Venntur</h3>
-                            <p>Lideré el desarrollo principal, gestionando la infraestructura técnica y configurando servidores para optimizar rendimiento. Implementé sistema de funcionalidades clave, integración de APIs y garantías de seguridad para protección de datos sensibles. Colaboré estrechamente con el cliente para cumplir requisitos específicos.</p>
-                            <div class="project-tags">
-                                <span>PHP</span>
-                                <span>MySQL</span>
-                                <span>Angular</span>
-                                <span>API REST</span>
-                                <span>XML</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn disabled btn--outline">Ver Demo</a>
-                                <a href="#" class="btn btn--outline">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="bento-item glass-card project-card">
-                        <div class="project-image" data-project="CLOUD APP">
-                            <img src="images/jardines.png" alt="Jardines de Alfabia">
-                        </div>
-                        <div class="project-info">
-                            <h3>Jardines de Alfabia</h3>
-                            <p>Desarrollé un sistema completo de venta de entradas con portal web y API propia para gestionar el flujo de clientes y entradas. Implementé una tienda en línea y física con gestión de stock y ventas de souvenirs, mejorando los procesos internos de inventario. La API robusta integró sistemas de terceros y optimizó significativamente los tiempos de venta.</p>
-                            <div class="project-tags">
-                                <span>CodeIgniter 4</span>
-                                <span>Angular</span>
-                                <span>MySQL</span>
-                                <span>JavaScript</span>
-                                <span>jQuery</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn--outline">Ver Demo</a>
-                                <a href="#" class="btn btn--outline">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bento-item glass-card project-card">
-                        <div class="project-image" data-project="NEURAL-SENSE">
-                            <img src="images/convergence.png" alt="Convergence | Web APP Game">
-                        </div>
-                        <div class="project-info">
-                            <h3>Convergence</h3>
-                            <p>Aplicación web de juego multijugador en tiempo real desarrollada con Express y React. Implementé sistema de comunicación bidireccional con WebSockets para experiencia fluida, algoritmos de convergencia personalizados y gestión eficiente de estados del juego. Optimicé la sincronización en tiempo real y experiencia UX para facilitar la interacción.</p>
-                            <div class="project-tags">
-                                <span>React</span>
-                                <span>WebSockets</span>
-                                <span>NodeJs</span>
-                                <span>Express</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn--outline">Ver Demo</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bento-item glass-card project-card">
-                        <div class="project-image" data-project="NEO-CHAT">
-                            <img src="images/descapada.png" alt="Descapada">
-                        </div>
-                        <div class="project-info">
-                            <h3>Descapada</h3>
-                            <p>Integré un CMS de gestión de productos heredado en Laravel con la web principal, garantizando compatibilidad entre plataformas. Desarrollé nuevas funcionalidades para administración interna y optimicé el rendimiento global, reduciendo el tiempo de carga a menos de 0.5s. Implementé integraciones avanzadas que permitieron al cliente gestionar su catálogo de manera eficiente y escalable.</p>
-                            <div class="project-tags">
-                                <span>Laravel</span>
-                                <span>PHP</span>
-                                <span>MySQL</span>
-                                <span>API REST</span>
-                                <span>WordPress</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn--outline">Ver Demo</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bento-item glass-card project-card">
-                        <div class="project-image" data-project="NEURAL-SENSE">
-                            <img src="images/sisge.png" alt="SISGE | Treball Solidari">
-                        </div>
-                        <div class="project-info">
-                            <h3>SISGE</h3>
-                            <p>Lideré el desarrollo y mantenimiento de la plataforma de préstamos de créditos SISGE, optimizando código de terceros e implementando funcionalidades clave. Colaboré directamente con equipos técnicos y de negocio, ofreciendo soluciones personalizadas y soporte continuo para resolver incidencias críticas. Desarrollé herramientas de monitoreo y gestión para facilitar el trabajo de los equipos técnicos.</p>
-                            <div class="project-tags">
-                                <span>CodeIgniter 4</span>
-                                <span>MySQL</span>
-                                <span>JavaScript</span>
-                                <span>jQuery</span>
-                                <span>CSS</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="btn btn--outline">Ver Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bento-item glass-card view-more-card">
-                        <i class="fas fa-code-branch"></i>
-                        <h3>Más Proyectos</h3>
-                        <p>Explora mi portafolio completo para ver más proyectos y contribuciones</p>
-                        <a href="#" class="btn btn--primary">Ver Todo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- 3. Sobre Mí (ahora tercera sección) -->
+        <!-- 2. Sobre Mí (ahora tercera sección) -->
         <section id="about" class="about">
             <div class="container">
                 <h2 class="section-title glitch" data-text="SOBRE MÍ">SOBRE MÍ</h2>
+                
+                <!-- Stats Box (solo visible en móvil) -->
+                <div class="glass-panel about__stats-box about__stats-box--mobile">
+                    <div class="about__stats">
+                        <div class="stat-item">
+                            <div class="stat-number">+50</div>
+                            <div class="stat-label">Proyectos Completados</div>
+                            <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">+7</div>
+                            <div class="stat-label">Años de Experiencia</div>
+                            <div class="stat-icon"><i class="fas fa-laptop-code"></i></div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">+20</div>
+                            <div class="stat-label">Clientes Satisfechos</div>
+                            <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="about__grid">
                     <!-- Intro Box -->
@@ -296,8 +229,8 @@
                         </div>
                     </div>
                     
-                    <!-- Stats Box -->
-                    <div class="glass-panel about__stats-box">
+                    <!-- Stats Box (para escritorio) -->
+                    <div class="glass-panel about__stats-box about__stats-box--desktop">
                         <div class="about__stats">
                             <div class="stat-item">
                                 <div class="stat-number">+50</div>
@@ -319,6 +252,7 @@
                         </div>
                     </div>
                 </div>
+                
                 
                 <!-- Especialidades -->
                 <h3 class="about__subtitle">ÁREAS DE ESPECIALIDAD</h3>
@@ -451,6 +385,193 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Idiomas -->
+                <h3 class="about__subtitle">COMPETENCIAS LINGÜÍSTICAS</h3>
+                <div class="glass-panel language-container">
+                    <div class="language-item">
+                        <div class="language-flag">
+                            <img src="images/flags/spain.svg" alt="Bandera de España">
+                        </div>
+                        <div class="language-info">
+                            <h4>Español</h4>
+                            <div class="language-level native">
+                                <span class="level-indicator"></span>
+                                <span class="level-text">Nativo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="language-item">
+                        <div class="language-flag">
+                            <img src="images/flags/uk.svg" alt="Bandera de Reino Unido">
+                        </div>
+                        <div class="language-info">
+                            <h4>Inglés</h4>
+                            <div class="language-level intermediate">
+                                <span class="level-indicator"></span>
+                                <span class="level-text">Intermedio</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="language-item">
+                        <div class="language-flag">
+                            <img src="images/flags/catalonia.svg" alt="Bandera de Cataluña">
+                        </div>
+                        <div class="language-info">
+                            <h4>Catalán</h4>
+                            <div class="language-level advanced">
+                                <span class="level-indicator"></span>
+                                <span class="level-text">Avanzado</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="language-item">
+                        <div class="language-flag">
+                            <img src="images/flags/italy.svg" alt="Bandera de Italia">
+                        </div>
+                        <div class="language-info">
+                            <h4>Italiano</h4>
+                            <div class="language-level advanced">
+                                <span class="level-indicator"></span>
+                                <span class="level-text">Avanzado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 3. Proyectos Destacados (ahora segunda sección) -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <div class="bento-grid">
+                    <div class="bento-item glass-card project-card">
+                        <div class="project-image" data-project="CMS">
+                            <img src="images/venntur.png" 
+                                 srcset="images/venntur.png 400w,
+                                         images/venntur.png 800w,
+                                         images/venntur.png 1200w"
+                                 sizes="(max-width: 600px) 400px,
+                                        (max-width: 1200px) 800px,
+                                        1200px"
+                                 alt="Venntur Platform">
+                        </div>
+                        <div class="project-info">
+                            <h3>Venntur</h3>
+                            <p>Lideré el desarrollo principal, gestionando la infraestructura técnica y configurando servidores para optimizar rendimiento. Implementé sistema de funcionalidades clave, integración de APIs y garantías de seguridad para protección de datos sensibles. Colaboré estrechamente con el cliente para cumplir requisitos específicos.</p>
+                            <div class="project-tags">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>Angular</span>
+                                <span>API REST</span>
+                                <span>XML</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn disabled btn--outline">Visitar web</a>
+                                <!-- <a href="#" class="btn btn--outline">GitHub</a> -->
+                                <button class="case-study-btn" data-project="venntur">Caso Estudio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-item glass-card project-card">
+                        <div class="project-image" data-project="NEO-CHAT">
+                            <img src="images/descapada.png" alt="Descapada">
+                        </div>
+                        <div class="project-info">
+                            <h3>Descapada</h3>
+                            <p>Integré un CMS de gestión de productos heredado en Laravel con la web principal, garantizando compatibilidad entre plataformas. Desarrollé nuevas funcionalidades para administración interna y optimicé el rendimiento global, reduciendo el tiempo de carga a menos de 0.5s. Implementé integraciones avanzadas que permitieron al cliente gestionar su catálogo de manera eficiente y escalable.</p>
+                            <div class="project-tags">
+                                <span>Laravel</span>
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>API REST</span>
+                                <span>WordPress</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn--outline">Visitar web</a>
+                                <button class="case-study-btn" data-project="descapada">Caso Estudio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="bento-item glass-card project-card">
+                        <div class="project-image" data-project="NEURAL-SENSE">
+                            <img src="images/convergence.png" alt="Convergence | Web APP Game">
+                        </div>
+                        <div class="project-info">
+                            <h3>Convergence</h3>
+                            <p>Aplicación web de juego multijugador en tiempo real desarrollada con Express y React. Implementé sistema de comunicación bidireccional con WebSockets para experiencia fluida, algoritmos de convergencia personalizados y gestión eficiente de estados del juego. Optimicé la sincronización en tiempo real y experiencia UX para facilitar la interacción.</p>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>WebSockets</span>
+                                <span>NodeJs</span>
+                                <span>Express</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn--outline disabled">Próximamente</a>
+                                <button class="case-study-btn" data-project="convergence">Caso Estudio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-item glass-card project-card">
+                        <div class="project-image" data-project="CLOUD APP">
+                            <img src="images/jardines.png" alt="Jardines de Alfabia">
+                        </div>
+                        <div class="project-info">
+                            <h3>Jardines de Alfabia</h3>
+                            <p>Desarrollé un sistema completo de venta de entradas con portal web y API propia para gestionar el flujo de clientes y entradas. Implementé una tienda en línea y física con gestión de stock y ventas de souvenirs, mejorando los procesos internos de inventario. La API robusta integró sistemas de terceros y optimizó significativamente los tiempos de venta.</p>
+                            <div class="project-tags">
+                                <span>CodeIgniter 4</span>
+                                <span>Angular</span>
+                                <span>MySQL</span>
+                                <span>JavaScript</span>
+                                <span>jQuery</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- <a href="#" class="btn btn--outline">Ver Demo</a> -->
+                                <!-- <a href="#" class="btn btn--outline">GitHub</a> -->
+                                <button class="case-study-btn" data-project="jardines">Ver Caso Estudio</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bento-item glass-card project-card">
+                        <div class="project-image" data-project="NEURAL-SENSE">
+                            <img src="images/sisge.png" alt="SISGE | Treball Solidari">
+                        </div>
+                        <div class="project-info">
+                            <h3>SISGE</h3>
+                            <p>Lideré el desarrollo y mantenimiento de la plataforma de préstamos de créditos SISGE, optimizando código de terceros e implementando funcionalidades clave. Colaboré directamente con equipos técnicos y de negocio, ofreciendo soluciones personalizadas y soporte continuo para resolver incidencias críticas. Desarrollé herramientas de monitoreo y gestión para facilitar el trabajo de los equipos técnicos.</p>
+                            <div class="project-tags">
+                                <span>CodeIgniter 4</span>
+                                <span>MySQL</span>
+                                <span>JavaScript</span>
+                                <span>jQuery</span>
+                                <span>CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- <a href="#" class="btn btn--outline">Ver Demo</a> -->
+                                <button class="case-study-btn" data-project="sisge">Caso Estudio</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bento-item glass-card view-more-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Más Proyectos</h3>
+                        <p>Explora mi portafolio completo para ver más proyectos y contribuciones</p>
+                        <a href="#" class="btn btn--primary">Ver Todo</a>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -459,26 +580,6 @@
             <div class="container">
                 <h2 class="section-title">Habilidades Técnicas</h2>
                 
-                <!-- Leyenda de niveles de habilidad -->
-                <div class="skill-legend">
-                    <div class="skill-legend-item">
-                        <span class="skill-legend-color skill-legend-master"></span>
-                        <span>Experto</span>
-                    </div>
-                    <div class="skill-legend-item">
-                        <span class="skill-legend-color skill-legend-advanced"></span>
-                        <span>Avanzado</span>
-                    </div>
-                    <div class="skill-legend-item">
-                        <span class="skill-legend-color skill-legend-intermediate"></span>
-                        <span>Intermedio</span>
-                    </div>
-                    <div class="skill-legend-item">
-                        <span class="skill-legend-color skill-legend-beginner"></span>
-                        <span>Principiante</span>
-                    </div>
-                </div>
-                
                 <div class="bento-grid">
                     <!-- Back-End -->
                     <div class="bento-item glass-card skill-category">
@@ -486,26 +587,30 @@
                             <i class="fas fa-server" aria-hidden="true"></i>
                             <h3>Back-End</h3>
                                 </div>
-                        <div class="skill-tags">
-                            <div class="skill-tag skill-master" data-tooltip="Más de 7 años de experiencia profesional">
-                                <span class="skill-name">PHP</span>
-                                <span class="skill-level-badge">Experto</span>
+                        <div class="skill-tags-container">
+                            <div class="skill-tag-item">
+                                <i class="fab fa-php"></i>
+                                <span>PHP</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Experiencia avanzada con el framework Laravel">
-                                <span class="skill-name">Laravel</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-laravel"></i>
+                                <span>Laravel</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Desarrollo de APIs y aplicaciones con Node.js">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
                             </div>
-                            <div class="skill-tag skill-intermediate" data-tooltip="Conocimientos intermedios en Python">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-level-badge">Intermedio</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Experiencia con CodeIgniter para desarrollo de aplicaciones web">
-                                <span class="skill-name">CodeIgniter</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-fire"></i>
+                                <span>CodeIgniter</span>
+                            </div>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span>API REST</span>
                             </div>
                         </div>
                     </div>
@@ -516,26 +621,30 @@
                             <i class="fas fa-laptop-code" aria-hidden="true"></i>
                             <h3>Front-End</h3>
                                 </div>
-                        <div class="skill-tags">
-                            <div class="skill-tag skill-master" data-tooltip="Dominio experto de HTML5 y CSS3">
-                                <span class="skill-name">HTML5/CSS3</span>
-                                <span class="skill-level-badge">Experto</span>
+                        <div class="skill-tags-container">
+                            <div class="skill-tag-item">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
                             </div>
-                            <div class="skill-tag skill-master" data-tooltip="Desarrollo avanzado con JavaScript, ES6+ y TypeScript">
-                                <span class="skill-name">JavaScript</span>
-                                <span class="skill-level-badge">Experto</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Desarrollo de SPAs y componentes con React">
-                                <span class="skill-name">React</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Experiencia en desarrollo con Angular">
-                                <span class="skill-name">Angular</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Diseño y maquetación avanzada con TailwindCSS">
-                                <span class="skill-name">TailwindCSS</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-angular"></i>
+                                <span>Angular</span>
+                            </div>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-sass"></i>
+                                <span>TailwindCSS</span>
                             </div>
                         </div>
                     </div>
@@ -546,26 +655,30 @@
                             <i class="fas fa-database" aria-hidden="true"></i>
                             <h3>Bases de Datos</h3>
                                 </div>
-                        <div class="skill-tags">
-                            <div class="skill-tag skill-master" data-tooltip="Administración y optimización de MySQL">
-                                <span class="skill-name">MySQL</span>
-                                <span class="skill-level-badge">Experto</span>
+                        <div class="skill-tags-container">
+                            <div class="skill-tag-item">
+                                <i class="fas fa-database"></i>
+                                <span>MySQL</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Diseño y operaciones en PostgreSQL">
-                                <span class="skill-name">PostgreSQL</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-elephant"></i>
+                                <span>PostgreSQL</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Experiencia en MariaDB para aplicaciones web">
-                                <span class="skill-name">MariaDB</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-server"></i>
+                                <span>MariaDB</span>
                             </div>
-                            <div class="skill-tag skill-intermediate" data-tooltip="Desarrollo con MongoDB para almacenamiento NoSQL">
-                                <span class="skill-name">MongoDB</span>
-                                <span class="skill-level-badge">Intermedio</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>MongoDB</span>
                             </div>
-                            <div class="skill-tag skill-intermediate" data-tooltip="Uso de Redis para caché y almacenamiento en memoria">
-                                <span class="skill-name">Redis</span>
-                                <span class="skill-level-badge">Intermedio</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Redis</span>
+                            </div>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-table"></i>
+                                <span>SQL</span>
                             </div>
                         </div>
                     </div>
@@ -576,26 +689,30 @@
                             <i class="fas fa-cloud" aria-hidden="true"></i>
                             <h3>DevOps</h3>
                                 </div>
-                        <div class="skill-tags">
-                            <div class="skill-tag skill-master" data-tooltip="Control de versiones y flujo de trabajo con Git">
-                                <span class="skill-name">Git</span>
-                                <span class="skill-level-badge">Experto</span>
+                        <div class="skill-tags-container">
+                            <div class="skill-tag-item">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Creación y gestión de contenedores Docker">
-                                <span class="skill-name">Docker</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-docker"></i>
+                                <span>Docker</span>
                             </div>
-                            <div class="skill-tag skill-intermediate" data-tooltip="Implementación y gestión de servicios en AWS">
-                                <span class="skill-name">AWS</span>
-                                <span class="skill-level-badge">Intermedio</span>
+                            <div class="skill-tag-item">
+                                <i class="fab fa-aws"></i>
+                                <span>AWS</span>
                             </div>
-                            <div class="skill-tag skill-intermediate" data-tooltip="Implementación de pipelines CI/CD">
-                                <span class="skill-name">CI/CD</span>
-                                <span class="skill-level-badge">Intermedio</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>CI/CD</span>
                             </div>
-                            <div class="skill-tag skill-advanced" data-tooltip="Configuración y optimización de servidores Nginx">
-                                <span class="skill-name">Nginx</span>
-                                <span class="skill-level-badge">Avanzado</span>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Nginx</span>
+                            </div>
+                            <div class="skill-tag-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Seguridad</span>
                             </div>
                         </div>
                     </div>
@@ -608,96 +725,270 @@
             <div class="container">
                 <h2 class="section-title">Experiencia Profesional</h2>
                 
-                <div class="experience__tabs">
-                    <button class="experience__tab-btn active" data-target="tab-it2b">IT2B</button>
-                    <button class="experience__tab-btn" data-target="tab-flytickets">FlyTickets</button>
-                    <button class="experience__tab-btn" data-target="tab-infoarta">InfoArta</button>
-                    <button class="experience__tab-btn" data-target="tab-mallorcat">Mallorca Golf</button>
-                </div>
-                
-                <div class="experience__content glass-card">
-                    <div id="tab-it2b" class="experience__tab-content active">
-                        <div class="experience__header">
-                            <h3 class="experience__position">Desarrollador Full-Stack y Administrador de Sistemas</h3>
-                            <span class="experience__company">IT2B Programación y Marketing Digital</span>
-                            <span class="experience__date">Abril 2022 - Diciembre 2024</span>
+                <div class="experience-timeline">
+                    <div class="timeline-track"></div>
+                    
+                    <!-- IT2B -->
+                    <div class="timeline-node" data-company="IT2B">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">2022 - 2024</div>
                         </div>
-                        <ul class="experience__achievements">
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">IT2B</h3>
+                                        <span class="company-period">Abril 2022 - Diciembre 2024</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack y Administrador de Sistemas</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
                             <li>Desarrollé e implementé aplicaciones web personalizadas, gestionando tanto el front como el back.</li>
                             <li>Creé e integré APIs RESTful y WebSockets, optimizando procesos y experiencia de usuario.</li>
                             <li>Reducción significativa de tiempos de carga a menos de 300 ms mediante técnicas de optimización.</li>
                             <li>Administración de servidores, bases de datos y despliegues en entornos cloud.</li>
                         </ul>
-                        <div class="experience__tech-tags">
-                            <span class="experience__tag">PHP</span>
-                            <span class="experience__tag">Laravel</span>
-                            <span class="experience__tag">JavaScript</span>
-                            <span class="experience__tag">React</span>
-                            <span class="experience__tag">MySQL</span>
-                            <span class="experience__tag">AWS</span>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                                    <span class="tech-tag"><i class="fab fa-laravel"></i> Laravel</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div id="tab-flytickets" class="experience__tab-content">
-                        <div class="experience__header">
-                            <h3 class="experience__position">Desarrollador Back-End Senior</h3>
-                            <span class="experience__company">FlyTickets</span>
-                            <span class="experience__date">Enero 2021 - Marzo 2022</span>
+                    <!-- Jardines de Alfabia -->
+                    <div class="timeline-node" data-company="JardinesAlfabia">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">Proyecto IT2B</div>
                         </div>
-                        <ul class="experience__achievements">
-                            <li>Desarrollé e implementé sistemas de venta de entradas y gestión de eventos.</li>
-                            <li>Optimicé la arquitectura de la aplicación para soportar picos de tráfico durante grandes eventos.</li>
-                            <li>Integré pasarelas de pago y sistemas de emisión de tickets digitales.</li>
-                            <li>Lideré un equipo de 3 desarrolladores junior.</li>
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">Jardines de Alfabia</h3>
+                                        <span class="company-period">Proyecto en IT2B</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
+                                    <li>Implementé un sistema de venta de entradas basado en un portal web con una API propia para gestionar todo el flujo de clientes y entradas de la empresa, asegurando agilidad a la hora de vender entradas en el mostrador.</li>
+                                    <li>Diseñé y desarrollé una tienda en línea y física con gestión de stock y ventas de souvenirs, mejorando los procesos internos de inventario y venta.</li>
+                                    <li>Desarrollé una API robusta que permitió integrar sistemas de terceros y optimizar la funcionalidad del portal, además de haber optimizado los tiempos de venta de entradas.</li>
                         </ul>
-                        <div class="experience__tech-tags">
-                            <span class="experience__tag">PHP</span>
-                            <span class="experience__tag">Symfony</span>
-                            <span class="experience__tag">MySQL</span>
-                            <span class="experience__tag">Redis</span>
-                            <span class="experience__tag">API REST</span>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fas fa-fire"></i> CodeIgniter 4</span>
+                                    <span class="tech-tag"><i class="fab fa-angular"></i> Angular</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> jQuery</span>
+                                    <span class="tech-tag"><i class="fab fa-css3"></i> CSS</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div id="tab-infoarta" class="experience__tab-content">
-                        <div class="experience__header">
-                            <h3 class="experience__position">Desarrollador Full-Stack</h3>
-                            <span class="experience__company">InfoArta</span>
-                            <span class="experience__date">Junio 2019 - Diciembre 2020</span>
+                    <!-- FlyTickets -->
+                    <div class="timeline-node" data-company="FlyTickets">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">2019 - 2020</div>
                         </div>
-                        <ul class="experience__achievements">
-                            <li>Desarrollé soluciones web a medida para clientes locales e internacionales.</li>
-                            <li>Implementé sistemas de gestión de contenidos y tiendas online.</li>
-                            <li>Realicé migraciones de bases de datos y actualizaciones de sistemas.</li>
-                            <li>Configuré servidores y sistemas de despliegue continuo.</li>
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-ticket-alt"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">FlyTickets</h3>
+                                        <span class="company-period">Diciembre 2019 - Abril 2020</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
+                                    <li>Desarrollo y mantenimiento de plataformas web para la nueva marca de la empresa, incluyendo integraciones de buscadores de vuelos y hoteles de terceros.</li>
+                                    <li>Optimización de los sitios propios basados en código fuente propio, implementando mejoras funcionales y visuales en los productos para asegurar una experiencia de usuario más fluida y atractiva.</li>
+                                    <li>Resolví problemas críticos en los sitios web, como errores de funcionalidad, visualización incorrecta y fallos recurrentes, garantizando un rendimiento estable.</li>
+                                    <li>Implementé mejoras que ayudaron al posicionamiento básico en buscadores, aumentando la visibilidad de la plataforma.</li>
                         </ul>
-                        <div class="experience__tech-tags">
-                            <span class="experience__tag">PHP</span>
-                            <span class="experience__tag">JavaScript</span>
-                            <span class="experience__tag">WordPress</span>
-                            <span class="experience__tag">jQuery</span>
-                            <span class="experience__tag">MySQL</span>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fas fa-code-branch"></i> API REST</span>
+                                    <span class="tech-tag"><i class="fas fa-file-code"></i> XML</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fab fa-css3"></i> CSS</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div id="tab-mallorcat" class="experience__tab-content">
-                        <div class="experience__header">
-                            <h3 class="experience__position">Desarrollador WordPress</h3>
-                            <span class="experience__company">Mallorca Golf</span>
-                            <span class="experience__date">Febrero 2018 - Mayo 2019</span>
+                    <!-- Descapada -->
+                    <div class="timeline-node" data-company="Descapada">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">Proyecto IT2B</div>
                         </div>
-                        <ul class="experience__achievements">
-                            <li>Desarrollé y mantuve la plataforma de reservas de campos de golf.</li>
-                            <li>Implementé integraciones con sistemas de terceros.</li>
-                            <li>Optimicé el rendimiento del sitio mejorando los tiempos de carga.</li>
-                            <li>Desarrollé plugins personalizados para funcionalidades específicas.</li>
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">Descapada</h3>
+                                        <span class="company-period">Proyecto en IT2B</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
+                                    <li>Integré un CMS de gestión de productos heredado en Laravel con la web principal de Descapada.com, garantizando la correcta funcionalidad y compatibilidad entre plataformas.</li>
+                                    <li>Desarrollé e implementé nuevas funcionalidades al CMS para la administración interna y optimicé el rendimiento global del sitio web en función de las necesidades específicas del cliente.</li>
+                                    <li>Optimicé el tiempo de carga de la web principal a menos de 0.5s, mejorando significativamente la experiencia del usuario.</li>
+                                    <li>Desarrollé integraciones avanzadas que permitieron al cliente gestionar su catálogo de manera más eficiente y escalable.</li>
                         </ul>
-                        <div class="experience__tech-tags">
-                            <span class="experience__tag">WordPress</span>
-                            <span class="experience__tag">PHP</span>
-                            <span class="experience__tag">JavaScript</span>
-                            <span class="experience__tag">MySQL</span>
-                            <span class="experience__tag">CSS3</span>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fab fa-laravel"></i> Laravel</span>
+                                    <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fas fa-code-branch"></i> API REST</span>
+                                    <span class="tech-tag"><i class="fab fa-wordpress"></i> WordPress</span>
+                                    <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SISGE | Treball Solidari -->
+                    <div class="timeline-node" data-company="SISGE">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">Proyecto IT2B</div>
+                        </div>
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">SISGE | Treball Solidari</h3>
+                                        <span class="company-period">Proyecto en IT2B</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
+                                    <li>Líder en el desarrollo y mantenimiento de la plataforma de préstamos de créditos SISGE, heredando y optimizando código de terceros para implementar nuevas funcionalidades clave.</li>
+                                    <li>Colaboré directamente con equipos técnicos y de negocio, ofreciendo soluciones personalizadas y soporte continuo para resolver incidencias críticas.</li>
+                                    <li>Desarrollé nuevas herramientas de monitoreo y gestión, facilitando el trabajo de los equipos técnicos y administrativos.</li>
+                                </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fas fa-fire"></i> CodeIgniter 4</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> jQuery</span>
+                                    <span class="tech-tag"><i class="fab fa-css3"></i> CSS</span>
+                                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- InfoArta -->
+                    <div class="timeline-node" data-company="InfoArta">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">2018</div>
+                        </div>
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">InfoArta SL</h3>
+                                        <span class="company-period">Marzo 2018 - Junio 2018</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
+                                    <li>Implementé un CMS automatizado con PHP Vanilla para gestionar las tareas diarias de los empleados, optimizando procesos internos mediante el desarrollo de soluciones personalizadas.</li>
+                                    <li>Aumenté la productividad operativa mediante la implementación de flujos de trabajo optimizados que estaban directamente conectados al sistema de gestión personalizado de la empresa.</li>
+                                    <li>Automatización de tareas repetitivas, reduciendo tiempos de gestión y mejorando la eficiencia interna.</li>
+                                    <li>Desarrollo de interfaces intuitivas que mejoraron significativamente la experiencia de usuario interno.</li>
+                                </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> jQuery</span>
+                                    <span class="tech-tag"><i class="fab fa-css3"></i> CSS</span>
+                                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mallorca Golf -->
+                    <div class="timeline-node" data-company="MallorcaGolf">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-date">2017</div>
+                        </div>
+                        <div class="timeline-card glass-card">
+                            <div class="card-header">
+                                <div class="card-company">
+                                    <div class="company-logo">
+                                        <i class="fas fa-golf-ball"></i>
+                                    </div>
+                                    <div class="company-info">
+                                        <h3 class="company-name">Mallorca Golf Tours SL</h3>
+                                        <span class="company-period">Marzo 2017 - Abril 2017</span>
+                                    </div>
+                                </div>
+                                <span class="position-badge">Desarrollador Full-Stack</span>
+                            </div>
+                            <div class="card-content">
+                                <ul class="achievements-list">
+                                    <li>Automatización de tareas repetitivas y optimización de procesos internos para agilizar la gestión de clientes y reservas, mejorando significativamente los flujos de trabajo.</li>
+                                    <li>Diseñé herramientas personalizadas para mejorar la productividad y reducir errores operativos, contribuyendo directamente a la eficiencia del negocio.</li>
+                                    <li>Mejoré la eficiencia del sistema de gestión, facilitando la atención al cliente y optimizando la experiencia general del usuario.</li>
+                                    <li>Introduje mejoras que redujeron significativamente los tiempos de procesamiento de reservas, aumentando la capacidad operativa de la empresa.</li>
+                                </ul>
+                                <div class="tech-tags">
+                                    <span class="tech-tag"><i class="fab fa-php"></i> PHP</span>
+                                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                    <span class="tech-tag"><i class="fab fa-js"></i> jQuery</span>
+                                    <span class="tech-tag"><i class="fab fa-css3"></i> CSS</span>
+                                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -708,70 +999,136 @@
         <section id="education" class="education">
             <div class="container">
                 <h2 class="section-title">Formación Académica</h2>
-                <div class="bento-grid">
-                    <div class="bento-item span-2 glass-card education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
+                <div class="education-grid">
+                    <!-- Técnico Superior en Desarrollo de Aplicaciones Web -->
+                    <div class="education-card glass-card">
+                        <div class="education-year">2020-2022</div>
+                        <div class="education-badge"><i class="fas fa-code"></i></div>
                         <div class="education-content">
-                            <h3>Técnico Superior en Desarrollo de Aplicaciones Web</h3>
-                            <p class="institution">EDIB - Academia Fleming</p>
-                            <p class="period">2020 - 2022</p>
+                            <h3 class="education-title">Técnico Superior en Desarrollo de Aplicaciones Web</h3>
+                            <div class="education-institution">
+                                <i class="fas fa-university"></i>
+                                <span>EDIB - Academia Fleming</span>
+                        </div>
+                            <div class="education-details">
+                                <p>Formación especializada en desarrollo frontend y backend, junto con bases de datos y arquitectura web.</p>
+                                <div class="education-skills">
+                                    <span>HTML/CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>PHP</span>
+                                    <span>MySQL</span>
+                    </div>
+                        </div>
                         </div>
                     </div>
 
-                    <div class="bento-item span-2 glass-card education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
+                    <!-- Grado, Desarrollo de API's REST -->
+                    <div class="education-card glass-card">
+                        <div class="education-year">2019-2020</div>
+                        <div class="education-badge"><i class="fas fa-server"></i></div>
                         <div class="education-content">
-                            <h3>Grado, Desarrollo de API's REST</h3>
-                            <p class="institution">Palma Activa</p>
-                            <p class="period">2019 - 2020</p>
+                            <h3 class="education-title">Grado, Desarrollo de API's REST</h3>
+                            <div class="education-institution">
+                                <i class="fas fa-university"></i>
+                                <span>Palma Activa</span>
+                        </div>
+                            <div class="education-details">
+                                <p>Especialización en diseño e implementación de APIs RESTful para aplicaciones web modernas.</p>
+                                <div class="education-skills">
+                                    <span>REST</span>
+                                    <span>API Design</span>
+                                    <span>Backend</span>
+                                    <span>JSON</span>
+                    </div>
+                        </div>
                         </div>
                     </div>
 
-                    <div class="bento-item span-2 glass-card education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
+                    <!-- Grado Superior en Administración de Sistemas Informáticos en Red -->
+                    <div class="education-card glass-card">
+                        <div class="education-year">2018-2020</div>
+                        <div class="education-badge"><i class="fas fa-network-wired"></i></div>
                         <div class="education-content">
-                            <h3>Grado Superior en Administración de Sistemas Informáticos en Red</h3>
-                            <p class="institution">IES Manacor</p>
-                            <p class="period">2018 - 2020</p>
+                            <h3 class="education-title">Grado Superior en Administración de Sistemas Informáticos en Red</h3>
+                            <div class="education-institution">
+                                <i class="fas fa-university"></i>
+                                <span>IES Manacor</span>
+                        </div>
+                            <div class="education-details">
+                                <p>Formación avanzada en gestión de infraestructuras de red y sistemas operativos.</p>
+                                <div class="education-skills">
+                                    <span>Redes</span>
+                                    <span>Servidores</span>
+                                    <span>Linux</span>
+                                    <span>Windows Server</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="bento-item span-2 glass-card education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
+                    <!-- Técnico en Sistemas Microinformáticos y Redes -->
+                    <div class="education-card glass-card">
+                        <div class="education-year">2016-2018</div>
+                        <div class="education-badge"><i class="fas fa-laptop"></i></div>
                         <div class="education-content">
-                            <h3>Técnico en Sistemas Microinformáticos y Redes</h3>
-                            <p class="institution">Es Liceu</p>
-                            <p class="period">2016 - 2018</p>
+                            <h3 class="education-title">Técnico en Sistemas Microinformáticos y Redes</h3>
+                            <div class="education-institution">
+                                <i class="fas fa-university"></i>
+                                <span>Es Liceu</span>
+                            </div>
+                            <div class="education-details">
+                                <p>Fundamentos de sistemas informáticos, redes y soporte técnico.</p>
+                                <div class="education-skills">
+                                    <span>Hardware</span>
+                                    <span>Software</span>
+                                    <span>Redes Locales</span>
+                                    <span>Sistemas</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="bento-item span-2 glass-card education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
+                    <!-- Symfony PHP professional development + AWS -->
+                    <div class="education-card glass-card certification">
+                        <div class="education-year">2023</div>
+                        <div class="education-badge"><i class="fab fa-symfony"></i></div>
                         <div class="education-content">
-                            <h3>Symfony PHP professional development + AWS</h3>
-                            <p class="institution">Udemy</p>
-                            <p class="period">2023</p>
+                            <h3 class="education-title">Symfony PHP professional development + AWS</h3>
+                            <div class="education-institution">
+                                <i class="fab fa-udemy"></i>
+                                <span>Udemy</span>
+                        </div>
+                            <div class="education-details">
+                                <p>Desarrollo profesional con Symfony e integración con AWS.</p>
+                                <div class="education-skills">
+                                    <span>Symfony</span>
+                                    <span>PHP</span>
+                                    <span>AWS</span>
+                                    <span>Backend</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="bento-item span-2 glass-card education-item">
-                        <div class="education-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
+                    <!-- React & TypeScript - Complete guide -->
+                    <div class="education-card glass-card certification">
+                        <div class="education-year">2022</div>
+                        <div class="education-badge"><i class="fab fa-react"></i></div>
                         <div class="education-content">
-                            <h3>React & TypeScript - Complete guide</h3>
-                            <p class="institution">Udemy</p>
-                            <p class="period">2022</p>
+                            <h3 class="education-title">React & TypeScript - Complete guide</h3>
+                            <div class="education-institution">
+                                <i class="fab fa-udemy"></i>
+                                <span>Udemy</span>
+                            </div>
+                            <div class="education-details">
+                                <p>Desarrollo frontend avanzado con React y TypeScript.</p>
+                                <div class="education-skills">
+                                    <span>React</span>
+                                    <span>TypeScript</span>
+                                    <span>Frontend</span>
+                                    <span>JavaScript</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -782,56 +1139,100 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title">Contacto</h2>
-                <div class="bento-grid">
-                    <div class="bento-item span-2 glass-card">
-                    <div class="contact-info">
+                <div class="contact-grid">
+                    <!-- Información de contacto -->
+                    <div class="contact-card glass-card">
+                        <div class="contact-header">
+                            <div class="contact-badge">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h3 class="contact-title">Información de Contacto</h3>
+                        </div>
+                        <div class="contact-details">
                         <div class="contact-item">
+                                <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-data">
+                                    <h4>Email</h4>
                             <p>bryandavidp@gmail.com</p>
                         </div>
+                            </div>
+                            
                         <div class="contact-item">
+                                <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-data">
+                                    <h4>Ubicación</h4>
                             <p>Palma, Mallorca</p>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-language"></i>
-                            <p>Español (Nativo), Inglés (Intermedio), Catalán (Avanzado), Italiano (Avanzado)</p>
                         </div>
-                        <div class="social-links-large">
-                            <a href="https://linkedin.com/" target="_blank" class="social-link">
-                                <i class="fab fa-linkedin"></i>
+                            
+                            <div class="contact-item social-platforms">
+                                <a href="https://linkedin.com/" target="_blank" class="social-platform">
+                                    <div class="platform-icon linkedin">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </div>
                                 <span>LinkedIn</span>
                             </a>
-                            <a href="https://github.com/" target="_blank" class="social-link">
+                                
+                                <a href="https://github.com/" target="_blank" class="social-platform">
+                                    <div class="platform-icon github">
                                 <i class="fab fa-github"></i>
+                                    </div>
                                 <span>GitHub</span>
                             </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bento-item span-2 glass-card">
-                    <div class="contact-form-container">
+                    <!-- Formulario de contacto -->
+                    <div class="contact-card glass-card form-card">
+                        <div class="contact-header">
+                            <div class="contact-badge">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <h3 class="contact-title">Envíame un Mensaje</h3>
+                        </div>
                         <form id="contact-form" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
+                                <div class="input-container">
+                                    <i class="fas fa-user"></i>
                                 <input type="text" id="name" name="name" placeholder="Tu nombre" required>
                             </div>
-                            <div class="form-group">
-                                <label for="email" id="email-label">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Tu email" required aria-labelledby="email-label" aria-required="true">
                             </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-container">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" name="email" placeholder="Tu email" required>
+                            </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="subject">Asunto</label>
+                                <div class="input-container">
+                                    <i class="fas fa-tag"></i>
                                 <input type="text" id="subject" name="subject" placeholder="Asunto" required>
                             </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="message">Mensaje</label>
+                                <div class="input-container textarea">
+                                    <i class="fas fa-comment-alt"></i>
                                 <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
                             </div>
-                                <button type="submit" class="btn btn--primary btn--block">Enviar Mensaje</button>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary submit-btn">
+                                <span>Enviar Mensaje</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
                         </form>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -857,6 +1258,373 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- Botón de volver arriba -->
+    <a href="#hero" id="scroll-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Modales de casos de estudio -->
+    <!-- Modal Venntur -->
+    <div class="project-modal-overlay" id="modal-venntur">
+        <div class="project-modal">
+            <button class="project-modal-close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="project-modal-header">
+                <img src="images/venntur.png" alt="Venntur Platform">
+                <div class="project-modal-header-content">
+                    <span class="project-modal-category">CMS</span>
+                    <h2 class="project-modal-title">Venntur</h2>
+                    <p>Plataforma CMS personalizada para gestión de reservas y servicios turísticos</p>
+                </div>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">El Problema</h3>
+                    <p>El cliente necesitaba una plataforma centralizada para gestionar todas sus operaciones turísticas, incluyendo reservas, gestión de proveedores, facturación y reporting. Los sistemas existentes en el mercado no se adaptaban a sus necesidades específicas y procesos de negocio únicos.</p>
+                    <p>Los principales desafíos incluían:</p>
+                    <ul>
+                        <li>Integración con múltiples proveedores de servicios con diferentes APIs</li>
+                        <li>Necesidad de un sistema altamente personalizable y escalable</li>
+                        <li>Requisitos estrictos de seguridad para datos sensibles de clientes</li>
+                        <li>Gestión compleja de disponibilidad y precios en tiempo real</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Solución</h3>
+                    <p>Diseñé y desarrollé una plataforma CMS totalmente personalizada utilizando PHP como backend y Angular para el frontend, con una arquitectura modular que permitía:</p>
+                    <ul>
+                        <li>Sistema centralizado de gestión de reservas con visibilidad en tiempo real</li>
+                        <li>Integración universal con APIs de terceros mediante adaptadores personalizados</li>
+                        <li>Panel de administración intuitivo con roles y permisos granulares</li>
+                        <li>Motor de informes avanzado con métricas de negocio personalizables</li>
+                        <li>Sistema de gestión de inventario y disponibilidad en tiempo real</li>
+                    </ul>
+                    
+                    <div class="project-modal-tech">
+                        <span class="project-modal-tech-item"><i class="fab fa-php"></i> PHP</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-angular"></i> Angular</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-server"></i> API REST</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-file-code"></i> XML</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-shield-alt"></i> OAuth 2.0</span>
+                    </div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Rol</h3>
+                    <p>Como desarrollador principal del proyecto, mis responsabilidades incluyeron:</p>
+                    <ul>
+                        <li>Liderar el desarrollo técnico y establecer la arquitectura del sistema</li>
+                        <li>Gestionar la infraestructura técnica y configurar los servidores para optimizar el rendimiento</li>
+                        <li>Desarrollar el núcleo del sistema y las funcionalidades clave</li>
+                        <li>Implementar integraciones con APIs de terceros y sistemas externos</li>
+                        <li>Establecer protocolos de seguridad para proteger datos sensibles</li>
+                        <li>Colaborar directamente con el cliente para entender y satisfacer sus requisitos específicos</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Resultados</h3>
+                    <p>La implementación del sistema generó beneficios significativos para el cliente:</p>
+                    
+                    <div class="project-modal-metrics">
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">85%</div>
+                            <div class="project-modal-metric-label">Reducción tiempo de gestión</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">60%</div>
+                            <div class="project-modal-metric-label">Menos errores operativos</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">45%</div>
+                            <div class="project-modal-metric-label">Aumento en reservas</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">3x</div>
+                            <div class="project-modal-metric-label">Crecimiento de ingresos</div>
+                        </div>
+                    </div>
+                    
+                    <p>El sistema permitió al cliente escalar su negocio, incorporar nuevos servicios y mejorar significativamente la satisfacción de sus usuarios finales. La plataforma sigue en uso y ha recibido múltiples actualizaciones y mejoras desde su lanzamiento inicial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Jardines de Alfabia -->
+    <div class="project-modal-overlay" id="modal-jardines">
+        <div class="project-modal">
+            <button class="project-modal-close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="project-modal-header">
+                <img src="images/jardines.png" alt="Jardines de Alfabia">
+                <div class="project-modal-header-content">
+                    <span class="project-modal-category">CLOUD APP</span>
+                    <h2 class="project-modal-title">Jardines de Alfabia</h2>
+                    <p>Sistema integrado de venta de entradas y gestión de inventario para atracción turística</p>
+                </div>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">El Problema</h3>
+                    <p>Jardines de Alfabia, una popular atracción turística en Mallorca, enfrentaba varios desafíos operativos:</p>
+                    <ul>
+                        <li>Procesos manuales lentos para la venta de entradas en taquilla</li>
+                        <li>Falta de un sistema de reserva en línea para visitantes</li>
+                        <li>Gestión desconectada del inventario de la tienda física de souvenirs</li>
+                        <li>Dificultad para obtener datos estadísticos sobre visitas y ventas</li>
+                        <li>Imposibilidad de integración con operadores turísticos externos</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Solución</h3>
+                    <p>Desarrollé un sistema integral que incluía:</p>
+                    <ul>
+                        <li>Portal web con sistema de venta de entradas en línea conectado a un punto de venta físico para la taquilla</li>
+                        <li>API robusta que permitía la integración con sistemas de operadores turísticos</li>
+                        <li>Sistema de gestión de inventario para la tienda de souvenirs con seguimiento en tiempo real</li>
+                        <li>Panel de administración con informes detallados y analíticas</li>
+                        <li>Sistema de impresión de entradas con códigos QR para verificación rápida</li>
+                    </ul>
+                    
+                    <div class="project-modal-tech">
+                        <span class="project-modal-tech-item"><i class="fab fa-php"></i> CodeIgniter 4</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-angular"></i> Angular</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-js"></i> jQuery</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-css3"></i> CSS</span>
+                    </div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Rol</h3>
+                    <p>Como desarrollador full-stack principal, fui responsable de:</p>
+                    <ul>
+                        <li>Analizar los procesos existentes y diseñar la arquitectura completa del sistema</li>
+                        <li>Desarrollar el sistema de venta de entradas online y en taquilla</li>
+                        <li>Implementar la tienda en línea y física con gestión de stock integrada</li>
+                        <li>Desarrollar la API para integración con sistemas de terceros</li>
+                        <li>Capacitar al personal para el uso del nuevo sistema</li>
+                        <li>Proporcionar soporte técnico durante y después de la implementación</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Resultados</h3>
+                    <p>La implementación del sistema transformó las operaciones de Jardines de Alfabia:</p>
+                    
+                    <div class="project-modal-metrics">
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">75%</div>
+                            <div class="project-modal-metric-label">Reducción en tiempo de venta</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">30%</div>
+                            <div class="project-modal-metric-label">Aumento en ventas online</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">50%</div>
+                            <div class="project-modal-metric-label">Mejora en gestión inventario</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">95%</div>
+                            <div class="project-modal-metric-label">Precisión en datos</div>
+                        </div>
+                    </div>
+                    
+                    <p>El sistema permitió a Jardines de Alfabia modernizar sus operaciones, mejorar la experiencia del visitante y obtener datos valiosos para la toma de decisiones estratégicas. Actualmente, el sistema procesa miles de transacciones diarias durante la temporada alta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Convergence -->
+    <div class="project-modal-overlay" id="modal-convergence">
+        <div class="project-modal">
+            <button class="project-modal-close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="project-modal-header">
+                <img src="images/convergence.png" alt="Convergence | Web APP Game">
+                <div class="project-modal-header-content">
+                    <span class="project-modal-category">NEURAL-SENSE</span>
+                    <h2 class="project-modal-title">Convergence</h2>
+                    <p>Aplicación web de juego multijugador en tiempo real</p>
+                </div>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">El Problema</h3>
+                    <p>El cliente buscaba desarrollar una experiencia de juego multijugador en tiempo real con las siguientes características:</p>
+                    <ul>
+                        <li>Sincronización perfecta entre todos los jugadores sin latencia perceptible</li>
+                        <li>Interfaz intuitiva y atractiva que funcionara bien en diferentes dispositivos</li>
+                        <li>Gestión robusta de estados de juego incluso con conexiones inestables</li>
+                        <li>Sistema de emparejamiento eficiente para usuarios de diferentes niveles</li>
+                        <li>Rendimiento óptimo incluso con cientos de jugadores simultáneos</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Solución</h3>
+                    <p>Desarrollé una aplicación web basada en React para el frontend y Node.js/Express para el backend, con las siguientes características:</p>
+                    <ul>
+                        <li>Implementación de WebSockets para comunicación bidireccional en tiempo real</li>
+                        <li>Algoritmos de convergencia personalizados para sincronización</li>
+                        <li>Sistema de recuperación automática ante desconexiones temporales</li>
+                        <li>Arquitectura escalable con balanceo de carga y replicación de servidores</li>
+                        <li>Interfaz de usuario reactiva adaptada a diferentes dispositivos</li>
+                    </ul>
+                    
+                    <div class="project-modal-tech">
+                        <span class="project-modal-tech-item"><i class="fab fa-react"></i> React</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-plug"></i> WebSockets</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-node-js"></i> NodeJs</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-node-js"></i> Express</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-server"></i> Redis</span>
+                    </div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Rol</h3>
+                    <p>Como desarrollador principal del proyecto, mis responsabilidades incluyeron:</p>
+                    <ul>
+                        <li>Diseñar la arquitectura completa de la aplicación</li>
+                        <li>Implementar el sistema de comunicación en tiempo real con WebSockets</li>
+                        <li>Desarrollar los algoritmos de convergencia para sincronización</li>
+                        <li>Crear la interfaz de usuario reactiva y optimizada</li>
+                        <li>Implementar pruebas de carga y optimizar el rendimiento</li>
+                        <li>Coordinar con el equipo de diseño para garantizar una experiencia de usuario coherente</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Resultados</h3>
+                    <p>La aplicación tuvo un impacto significativo desde su lanzamiento:</p>
+                    
+                    <div class="project-modal-metrics">
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">10K+</div>
+                            <div class="project-modal-metric-label">Usuarios activos diarios</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">50ms</div>
+                            <div class="project-modal-metric-label">Latencia promedio</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">98%</div>
+                            <div class="project-modal-metric-label">Tasa de retención</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">4.8/5</div>
+                            <div class="project-modal-metric-label">Puntuación de usuarios</div>
+                        </div>
+                    </div>
+                    
+                    <p>La aplicación recibió elogios por su rendimiento excepcional y experiencia de usuario fluida. Ha mantenido una base de usuarios activa y en crecimiento, con actualizaciones periódicas para agregar nuevas funcionalidades y mejorar la experiencia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Descapada -->
+    <div class="project-modal-overlay" id="modal-descapada">
+        <div class="project-modal">
+            <button class="project-modal-close" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="project-modal-header">
+                <img src="images/descapada.png" alt="Descapada">
+                <div class="project-modal-header-content">
+                    <span class="project-modal-category">NEO-CHAT</span>
+                    <h2 class="project-modal-title">Descapada</h2>
+                    <p>Integración de CMS heredado con web principal y optimización de rendimiento</p>
+                </div>
+            </div>
+            <div class="project-modal-body">
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">El Problema</h3>
+                    <p>Descapada enfrentaba varios desafíos críticos con su infraestructura digital:</p>
+                    <ul>
+                        <li>Un CMS heredado en PHP que no se integraba con su sitio web principal en WordPress</li>
+                        <li>Tiempos de carga excesivamente largos (>3 segundos) que afectaban la experiencia del usuario</li>
+                        <li>Procesos manuales para actualizar productos entre sistemas</li>
+                        <li>Falta de funcionalidades clave para la administración interna</li>
+                        <li>Problemas de seguridad en transacciones y manejo de datos de usuario</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Solución</h3>
+                    <p>Implementé una solución completa que incluyó:</p>
+                    <ul>
+                        <li>Desarrollo de una API REST en Laravel para conectar el CMS heredado con WordPress</li>
+                        <li>Refactorización completa del código para optimizar el rendimiento</li>
+                        <li>Implementación de caché avanzada y técnicas de lazy loading</li>
+                        <li>Desarrollo de nuevas funcionalidades para administración de productos y inventario</li>
+                        <li>Mejoras en seguridad con implementación de HTTPS, sanitización de datos y validación</li>
+                    </ul>
+                    
+                    <div class="project-modal-tech">
+                        <span class="project-modal-tech-item"><i class="fab fa-laravel"></i> Laravel</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-php"></i> PHP</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-database"></i> MySQL</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-server"></i> API REST</span>
+                        <span class="project-modal-tech-item"><i class="fab fa-wordpress"></i> WordPress</span>
+                        <span class="project-modal-tech-item"><i class="fas fa-tachometer-alt"></i> Redis</span>
+                    </div>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Mi Rol</h3>
+                    <p>Como desarrollador encargado del proyecto, mis responsabilidades incluyeron:</p>
+                    <ul>
+                        <li>Analizar la arquitectura existente e identificar puntos de mejora</li>
+                        <li>Diseñar e implementar la API de integración entre sistemas</li>
+                        <li>Optimizar el rendimiento global del sistema</li>
+                        <li>Desarrollar nuevas funcionalidades para la gestión de productos</li>
+                        <li>Implementar medidas de seguridad avanzadas</li>
+                        <li>Capacitar al equipo del cliente en el uso de las nuevas herramientas</li>
+                    </ul>
+                </div>
+                
+                <div class="project-modal-section">
+                    <h3 class="project-modal-section-title">Resultados</h3>
+                    <p>La implementación generó mejoras significativas para el negocio:</p>
+                    
+                    <div class="project-modal-metrics">
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">0.5s</div>
+                            <div class="project-modal-metric-label">Tiempo de carga final</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">85%</div>
+                            <div class="project-modal-metric-label">Reducción en trabajo manual</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">40%</div>
+                            <div class="project-modal-metric-label">Aumento en conversiones</div>
+                        </div>
+                        <div class="project-modal-metric">
+                            <div class="project-modal-metric-value">100%</div>
+                            <div class="project-modal-metric-label">Integridad de datos</div>
+                        </div>
+                    </div>
+                    
+                    <p>El cliente experimentó una mejora significativa en la eficiencia operativa y la experiencia del usuario. La optimización del rendimiento llevó a un aumento en las conversiones y la satisfacción del cliente. El sistema integrado sigue funcionando sin problemas y ha requerido un mantenimiento mínimo desde su implementación.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="js/script.js"></script>
 </body>
 </html>

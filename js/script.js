@@ -1,4 +1,3 @@
-// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos del DOM
     const header = document.getElementById('header');
@@ -11,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     const tabButtons = document.querySelectorAll('.experience__tab-btn');
     const tabContents = document.querySelectorAll('.experience__tab-content');
+    // Nuevos elementos para caso de estudio
+    const caseStudyButtons = document.querySelectorAll('.case-study-btn');
 
     // Asignar índices a los elementos de navegación para animación
     const navItems = document.querySelectorAll('.nav-menu li');
@@ -423,6 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
     counterAnimation();
     initExperienceTabs();
     animateSkillBars();
+    initProjectModals();
 
     // Mejorar accesibilidad de tarjetas de proyecto para foco con teclado
     const projectCards = document.querySelectorAll('.project-card');
@@ -450,6 +452,322 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Función para inicializar los modales de proyectos
+    function initProjectModals() {
+        // Obtener todos los botones de caso de estudio
+        const caseStudyButtons = document.querySelectorAll('.case-study-btn');
+        const modalCloseButtons = document.querySelectorAll('.project-modal-close');
+        const modalOverlays = document.querySelectorAll('.project-modal-overlay');
+        
+        // Mejorar la interactividad del botón de caso de estudio
+        caseStudyButtons.forEach(button => {
+            // Añadir efecto pulsante
+            const addPulseEffect = () => {
+                if (!button.classList.contains('pulse-effect')) {
+                    button.classList.add('pulse-effect');
+                    setTimeout(() => {
+                        button.classList.remove('pulse-effect');
+                    }, 1000);
+                }
+            };
+            
+            // Añadir efecto de destello aleatorio
+            setInterval(() => {
+                // Solo aplicar a botones visibles en la pantalla
+                const rect = button.getBoundingClientRect();
+                if (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                ) {
+                    if (Math.random() > 0.7 && !prefersReducedMotion) {
+                        addPulseEffect();
+                    }
+                }
+            }, 3000);
+            
+            // Agregar evento de clic a los botones de caso de estudio
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const projectId = this.getAttribute('data-project');
+                const modal = document.getElementById(`modal-${projectId}`);
+                
+                if (modal) {
+                    // Preparar el modal antes de mostrarlo
+                    prepareModalForAnimation(modal);
+                    
+                    // Marcar este botón como el último que se hizo clic
+                    caseStudyButtons.forEach(btn => btn.removeAttribute('data-active'));
+                    this.setAttribute('data-active', 'true');
+                    
+                    // Efecto de clic para feedback visual
+                    this.classList.add('clicked');
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                    }, 300);
+                    
+                    // Abrir el modal después de un pequeño retraso para permitir la preparación del DOM
+                    requestAnimationFrame(() => {
+                        // Abrir el modal
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Prevenir scroll en el body
+                        
+                        // Agregar evento de teclado para accesibilidad
+                        document.addEventListener('keydown', handleModalEscKey);
+                        
+                        // Enfocar el primer elemento interactivo dentro del modal
+                        setTimeout(() => {
+                            const closeButton = modal.querySelector('.project-modal-close');
+                            if (closeButton) {
+                                closeButton.focus();
+                            }
+                        }, 100);
+                    });
+                }
+            });
+        });
+        
+        // Función para preparar el modal antes de la animación
+        function prepareModalForAnimation(modal) {
+            // Asegurar que las secciones y elementos estén preparados para la animación
+            const sections = modal.querySelectorAll('.project-modal-section');
+            const metrics = modal.querySelectorAll('.project-modal-metric');
+            const techItems = modal.querySelectorAll('.project-modal-tech-item');
+            
+            // Hacer reset de las propiedades de animación
+            [...sections, ...metrics, ...techItems].forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(15px)';
+                // No establecer transición aquí para evitar glitches
+                element.style.transition = 'none';
+            });
+            
+            // Forzar reflow para aplicar los estilos inmediatamente
+            modal.offsetHeight;
+        }
+        
+        // Función para cerrar modal con tecla Escape
+        function handleModalEscKey(e) {
+            if (e.key === 'Escape') {
+                closeAllModals();
+            }
+        }
+        
+        // Agregar evento de clic a los botones de cierre
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                closeAllModals();
+            });
+        });
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        modalOverlays.forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeAllModals();
+                }
+            });
+        });
+        
+        // Función para cerrar todos los modales
+        function closeAllModals() {
+            modalOverlays.forEach(overlay => {
+                // Eliminar la clase active con una pequeña transición
+                overlay.classList.remove('active');
+                
+                // Restaurar scroll después de que termine la animación
+                setTimeout(() => {
+                    document.body.style.overflow = '';
+                }, 400); // Coincidir con la duración de la transición CSS
+            });
+            
+            // Eliminar evento de teclado
+            document.removeEventListener('keydown', handleModalEscKey);
+            
+            // Devolver el foco al último botón de caso de estudio que se hizo clic
+            setTimeout(() => {
+                // Encontrar el último botón de caso de estudio que se hizo clic
+                const activeButton = document.querySelector('.case-study-btn[data-active="true"]');
+                if (activeButton) {
+                    activeButton.focus();
+                    activeButton.removeAttribute('data-active');
+                }
+            }, 100);
+        }
+        
+        // Agregar eventos de teclado para navegación accesible dentro del modal
+        modalOverlays.forEach(overlay => {
+            overlay.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    const focusableElements = overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+                    
+                    // Si se está presionando Shift + Tab y el elemento activo es el primero, enfoca el último
+                    if (e.shiftKey && document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                    // Si se está presionando Tab y el elemento activo es el último, enfoca el primero
+                    else if (!e.shiftKey && document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            });
+        });
+        
+        // Animar elementos dentro del modal cuando se abre
+        modalOverlays.forEach(overlay => {
+            overlay.addEventListener('transitionend', function(e) {
+                // Solo animar si fue el overlay el que completó la transición y está activo
+                if (e.target === this && this.classList.contains('active')) {
+                    animateModalContent(this);
+                }
+            });
+        });
+        
+        // Función para animar el contenido del modal
+        function animateModalContent(modal) {
+            // Establecer primero las propiedades de transición para evitar glitches
+            const elements = modal.querySelectorAll('.project-modal-section, .project-modal-tech-item, .project-modal-metric');
+            
+            // Aplicar animaciones con un enfoque más suave y progresivo
+            elements.forEach((el, index) => {
+                // Establecer la transición antes de cualquier cambio visual
+                el.style.transition = 'opacity 0.4s ease, transform 0.5s ease';
+                
+                // Establecer estado inicial
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(15px)';
+                
+                // Asignar un retraso más corto para mejorar la percepción de fluidez
+                const delay = 150 + (index * 40);
+                
+                // Aplicar los cambios después de un pequeño retraso
+                setTimeout(() => {
+                    requestAnimationFrame(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
+                }, delay);
+            });
+            
+            // También animar elementos simples de texto para asegurar legibilidad
+            const textElements = modal.querySelectorAll('.project-modal-header-content p, .project-modal-section p, .project-modal-section ul li');
+            textElements.forEach((el) => {
+                // Asegurar que el texto siempre sea legible
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+        }
+    }
+    
+    // Animación de la línea de tiempo de experiencia
+    function initExperienceTimeline() {
+        const timelineNodes = document.querySelectorAll('.timeline-node');
+        
+        // Crear observador para animar los nodos de la línea de tiempo
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Añadir delay para escalonar las animaciones
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 150 * Array.from(timelineNodes).indexOf(entry.target));
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        
+        // Observar cada nodo de la línea de tiempo
+        timelineNodes.forEach(node => {
+            observer.observe(node);
+        });
+        
+        // Efecto de desplazamiento paralax para la línea de tiempo
+        window.addEventListener('scroll', () => {
+            const timeline = document.querySelector('.experience-timeline');
+            if (timeline) {
+                const timelineRect = timeline.getBoundingClientRect();
+                // Solo aplicar efecto si la línea de tiempo está visible
+                if (timelineRect.top < window.innerHeight && timelineRect.bottom > 0) {
+                    const scrollPosition = window.scrollY;
+                    const timelineOffset = timeline.offsetTop;
+                    const scrollPercentage = (scrollPosition - timelineOffset + 500) / (timeline.offsetHeight + 500);
+                    
+                    // Aplicar movimiento a los nodos según el scroll
+                    timelineNodes.forEach((node, index) => {
+                        if (node.classList.contains('visible')) {
+                            const direction = index % 2 === 0 ? 1 : -1;
+                            const translateX = Math.min(15, scrollPercentage * 40) * direction;
+                            const rotate = Math.min(1, scrollPercentage * 3) * direction;
+                            node.querySelector('.timeline-card').style.transform = 
+                                `translateY(-10px) translateX(${translateX}px) rotate(${rotate}deg)`;
+                        }
+                    });
+                }
+            }
+        });
+        
+        // Aplicar efecto de parpadeo aleatorio a los marcadores
+        setInterval(() => {
+            if (!prefersReducedMotion) {
+                const randomNode = timelineNodes[Math.floor(Math.random() * timelineNodes.length)];
+                if (randomNode && randomNode.classList.contains('visible')) {
+                    const marker = randomNode.querySelector('.marker-dot');
+                    marker.style.transform = 'scale(1.3)';
+                    marker.style.boxShadow = '0 0 25px var(--accent-primary)';
+                    
+                    setTimeout(() => {
+                        marker.style.transform = '';
+                        marker.style.boxShadow = '';
+                    }, 1000);
+                }
+            }
+        }, 4000);
+    }
+    
+    // Animación de las tarjetas de habilidades
+    function initSkillsAnimation() {
+        const skillItems = document.querySelectorAll('.skill-tag-item');
+        
+        // Añadir delay de animación a cada elemento
+        skillItems.forEach((item, index) => {
+            // Añadir delay escalonado para cada elemento
+            const delay = index * 0.1;
+            item.style.animationDelay = `${delay}s`;
+            
+            // Añadir clase de animación al ser visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-in');
+                        }, delay * 1000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            observer.observe(item);
+        });
+        
+        // Añadir efecto de brillo aleatorio a algunos elementos
+        /* setInterval(() => {
+            if (!prefersReducedMotion) {
+                const randomItem = skillItems[Math.floor(Math.random() * skillItems.length)];
+                randomItem.classList.add('glow-effect');
+                
+                setTimeout(() => {
+                    randomItem.classList.remove('glow-effect');
+                }, 2000);
+            }
+        }, 3000); */
+    }
+    
     // Verificar si hay imágenes en rutas relativas incorrectas y corregirlas
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
@@ -475,6 +793,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initSkillBars();
     addFadeInClass();
     checkScreenSize();
+    initSkillsAnimation();
+    initExperienceTimeline();
+    initEducationCards();
+    initContactCards();
     
     // Detectar cambios de tamaño para mejorar responsive
     function checkScreenSize() {
@@ -581,3 +903,154 @@ function glitchEffect(selector) {
 setInterval(() => {
     glitchEffect('.project-info h3');
 }, 10000);
+
+// Inicialización de la sección de educación con animaciones escalonadas
+function initEducationCards() {
+    const educationCards = document.querySelectorAll('.education-card');
+    
+    // Crear observer para las tarjetas de educación
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Añadir delay escalonado para cada tarjeta
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                    
+                    // Añadir efectos aleatorios a los badges
+                    const badge = entry.target.querySelector('.education-badge');
+                    const randomDelay = Math.random() * 3000 + 2000; // Entre 2 y 5 segundos
+                    
+                    // Función para pulsar el badge aleatoriamente
+                    const pulseBadge = () => {
+                        if (Math.random() > 0.5 && !prefersReducedMotion) {
+                            badge.style.transform = 'scale(1.2) rotate(' + (Math.random() * 10 - 5) + 'deg)';
+                            badge.style.boxShadow = '0 0 20px rgba(var(--accent-primary-rgb), 0.7)';
+                            
+                            setTimeout(() => {
+                                badge.style.transform = '';
+                                badge.style.boxShadow = '';
+                            }, 700);
+                        }
+                    };
+                    
+                    // Iniciar pulsaciones aleatorias
+                    if (!prefersReducedMotion) {
+                        setTimeout(() => {
+                            setInterval(pulseBadge, randomDelay);
+                        }, index * 300);
+                    }
+                    
+                    // Animar skills después de aparecer la tarjeta
+                    const skills = entry.target.querySelectorAll('.education-skills span');
+                    skills.forEach((skill, skillIndex) => {
+                        setTimeout(() => {
+                            skill.style.opacity = '0';
+                            skill.style.transform = 'translateY(20px)';
+                            skill.style.transition = 'all 0.4s ease';
+                            
+                            setTimeout(() => {
+                                skill.style.opacity = '1';
+                                skill.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, 500 + (skillIndex * 100));
+                    });
+                    
+                }, 150 * index);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    
+    // Observar cada tarjeta de educación
+    educationCards.forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Añadir efectos interactivos a las habilidades
+    document.querySelectorAll('.education-skills span').forEach(skill => {
+        skill.addEventListener('mouseenter', function() {
+            if (!prefersReducedMotion) {
+                this.style.transform = 'translateY(-5px) scale(1.1)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            }
+        });
+        
+        skill.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        });
+    });
+}
+
+// Inicialización de la sección de contacto con animaciones
+function initContactCards() {
+    const contactCards = document.querySelectorAll('.contact-card');
+    
+    // Observer para las tarjetas de contacto
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Añadir delay escalonado para cada tarjeta
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                    
+                    // Aplicar efecto de resaltado al badge
+                    const badge = entry.target.querySelector('.contact-badge');
+                    if (badge && !prefersReducedMotion) {
+                        setTimeout(() => {
+                            badge.style.transform = 'scale(1.2) rotate(10deg)';
+                            badge.style.boxShadow = '0 0 20px rgba(var(--accent-primary-rgb), 0.7)';
+                            
+                            setTimeout(() => {
+                                badge.style.transform = '';
+                                badge.style.boxShadow = '';
+                            }, 1000);
+                        }, 500);
+                    }
+                    
+                    // Animación progresiva para los elementos de información de contacto
+                    const contactItems = entry.target.querySelectorAll('.contact-item, .form-group');
+                    contactItems.forEach((item, itemIndex) => {
+                        setTimeout(() => {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            item.style.transition = 'all 0.5s ease';
+                            
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, 300 + (itemIndex * 150));
+                    });
+                    
+                }, 200 * index);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    
+    // Observar cada tarjeta de contacto
+    contactCards.forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Añadir efectos aleatorios para los iconos de contacto
+    if (!prefersReducedMotion) {
+        setInterval(() => {
+            const items = document.querySelectorAll('.contact-icon, .platform-icon');
+            if (items.length > 0) {
+                const randomItem = items[Math.floor(Math.random() * items.length)];
+                
+                randomItem.style.transform = 'scale(1.2) rotate(10deg)';
+                randomItem.style.boxShadow = '0 0 15px rgba(var(--accent-primary-rgb), 0.6)';
+                
+                setTimeout(() => {
+                    randomItem.style.transform = '';
+                    randomItem.style.boxShadow = '';
+                }, 1000);
+            }
+        }, 3000);
+    }
+}
